@@ -62,7 +62,7 @@ console.log("stats", stats)
            
             {Object.keys(stats).length > 0 ? 
             <>
-                <div className='flex flex-col gap-3'>
+                <div className='flex flex-col gap-3 p-3'>
                     <div className='flex gap-2 items-center'>
                     <FontAwesomeIcon icon={faRecordVinyl} size='2x' />
                     <h3>{stats.totalCounts[0].totalAlbums} Albums</h3>
