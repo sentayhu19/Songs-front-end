@@ -5,6 +5,11 @@ import EditSongForm from './EditSongForm';
 import { ThemeProvider } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Box } from 'rebass/styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRecordVinyl } from '@fortawesome/free-solid-svg-icons';
+import { faGuitar } from '@fortawesome/free-solid-svg-icons';
+import { faMusic } from '@fortawesome/free-solid-svg-icons';
+import { faMicrophoneAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 const Table = styled.table`
@@ -53,15 +58,27 @@ console.log("stats", stats)
   return (
     <div className={'bg-[url(https://cdn.pixabay.com/photo/2016/04/30/14/58/music-1363069_960_720.jpg)]  h-screen bg-no-repeat w-[100%] bg-cover p-20'}>
          <h2 className='text-2xl'>Statistics</h2>
-        <div className=' flex items-center w-[50%] m-auto  gap-[50%] border'>
+        <div className=' flex items-center w-[40%] m-auto bg-green-500 text-white gap-[50%] border'>
            
             {Object.keys(stats).length > 0 ? 
             <>
                 <div>
+                    <div className='flex gap-2 items-center'>
+                    <FontAwesomeIcon icon={faRecordVinyl} size='2x' />
                     <h3>{stats.totalCounts[0].totalAlbums} Albums</h3>
+                    </div>
+                    <div className='flex gap-2 items-center'>
+                    <FontAwesomeIcon icon={faGuitar} size='2x' />
                     <h3>{stats.totalCounts[0].totalGenres} Genres</h3>
+                    </div>
+                    <div className='flex gap-2 items-center'>
+                    <FontAwesomeIcon icon={faMusic} size='2x' />
                     <h3>{stats.totalCounts[0].totalSongs} Songs</h3>
+                    </div>
+                    <div className='flex gap-2 items-center'>
+                    <FontAwesomeIcon icon={faMicrophoneAlt} size='2x' />
                     <h3>{stats.totalCounts[0].totalArtists} Artists</h3>
+                    </div>
                 </div>
                  <div className='border-l'>
                 <h3> {stats.countByAlbum[0].count} Albums by Name {stats.countByAlbum[0]._id}</h3>
