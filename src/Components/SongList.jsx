@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllSongsSuccess } from '../redux/song/songSlice';
 import EditSongForm from './EditSongForm';
-
 import { ThemeProvider } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Box } from 'rebass/styled-components';
@@ -12,7 +11,7 @@ const Table = styled.table`
   border-collapse: collapse;
   width: 70%;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 50px;
 `;
 
 const Th = styled.th`
@@ -39,40 +38,42 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const SongList = () => {
+const SongList = (bg) => {
   const dispatch = useDispatch();
   const { songs } = useSelector((state) => state.songs);
-
+    const { status } = useSelector((state) => state.songs);
+console.log("stats", status)
   useEffect(() => {
-    console.log("init useEFFECt getALL Songs")
     dispatch({type: "songs/getAllSongs"}); 
+    dispatch({type: "songs/getTotalCounts"});
   }, [dispatch]);
 
-  console.log("SONGS LIST", songs);
 
   return (
+    <div className={'bg-[url(https://cdn.pixabay.com/photo/2016/04/30/14/58/music-1363069_960_720.jpg)]  h-screen bg-no-repeat w-[100%] bg-cover p-20'}>
     <Box>
       <Table>
         <thead>
           <tr>
             <Th>Title</Th>
             <Th>Artist</Th>
+            <Th>Album</Th>
             <Th>Genre</Th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='text-white '>
           {songs.songs ? songs.songs.map((song) => (
-            <tr className='hover:bg-slate-300' key={song.id}>
+            <tr className='hover:bg-slate-400 even:bg-gray-300 even:text-black' key={song.id}>
               <Td>{song.title}</Td>
               <Td>{song.artist}</Td>
+             <Td>{song.album}</Td>
               <Td>{song.genre}</Td>
-              <Td>
-              </Td>
             </tr>
           )): ''}
         </tbody>
       </Table>
     </Box>
+    </div>
   );
 };
 

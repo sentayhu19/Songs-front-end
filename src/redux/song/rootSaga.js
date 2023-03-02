@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import { setSongs, setStatus, setError, getAllSongsSuccess } from './songSlice';
+import { setSongs, setStatus, setError, getAllSongsSuccess, getTotalCountsSuccess } from './songSlice';
 
 const url = 'http://localhost:3000/v1';
 function* addNewSong(action) {
@@ -45,14 +45,14 @@ function* getAllSongs() {
 function* getTotalCounts() {
   try {
     const { data } = yield call(axios.get, `${url}/gestatus`);
-    yield put(setStatus(data.message));
+    console.log("This is get total counts SAGA data: ", data);
+    yield put(getTotalCountsSuccess(data));
   } catch (error) {
     yield put(setError(error.message));
   }
 }
 
 function* rootSaga() {
-  console.log("********** This is root SAGA *************");
   yield takeEvery('songs/addNewSong', addNewSong);
   yield takeEvery('songs/editSong', editSong);
   yield takeEvery('songs/deleteSong', deleteSong);

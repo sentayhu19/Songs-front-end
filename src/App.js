@@ -11,13 +11,14 @@ import AddSongForm from "./Components/AddSongForm";
 function App() {
   return (
     <div className="App">
+      
      
       <Router>
       <Nav />
       <Routes>
-      <Route path="/" element={<SongList/>} />
-      <Route path="/managesong" element={<ManageSong/>} />
-      <Route path="/addnewsong" element={<AddSongForm/>} />
+      <Route path="/" element={<SongList/>}   />
+      <Route path="/managesong" element={<ManageSong  />} />
+      <Route path="/addnewsong" element={<AddSongForm />} />
       </Routes>
       </Router>
     </div>

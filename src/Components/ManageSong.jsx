@@ -9,7 +9,8 @@ import { Box } from 'rebass/styled-components';
 
 const Table = styled.table`
   border-collapse: collapse;
-  width: 100%;
+  width: 60%;
+    margin: 0 auto;
 `;
 
 const Th = styled.th`
@@ -23,18 +24,7 @@ const Td = styled.td`
   padding: 8px;
 `;
 
-const Button = styled.button`
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 4px 2px;
-  cursor: pointer;
-`;
+
 
 const ManageSong = () => {
   const dispatch = useDispatch();
@@ -45,14 +35,15 @@ const ManageSong = () => {
     dispatch({type: "songs/getAllSongs"}); 
   }, [dispatch]);
 
-  console.log("SONGS LIST", songs);
-
   return (
     <Box>
       <Table>
         <thead>
           <tr>
             <Th>Actions</Th>
+            <Th>Title</Th>
+            <Th>Artist</Th>
+            <Th>Gener </Th>
           </tr>
         </thead>
         <tbody>
@@ -60,7 +51,6 @@ const ManageSong = () => {
             <tr key={song.id}>
               <Td>
                 <EditSongForm song={song} />
-                <Button>Delete</Button>
               </Td>
             </tr>
           )): ''}

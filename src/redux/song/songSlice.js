@@ -5,16 +5,9 @@ const songsSlice = createSlice({
   name: 'songs',
   initialState: {
     songs: [],
-    status: {
-      totalSongs: 0,
-      totalArtists: 0,
-      totalGenres: 0,
-    },
+    status: [],
   },
   reducers: {
-    addNewSongSuccess: (state, action) => {
-      state.songs.push(action.payload);
-    },
     getAllSongsSuccess: (state, action) => {
       console.log("getAllSongsSuccess: ", action.payload)
       state.songs = action.payload;
@@ -29,6 +22,7 @@ const songsSlice = createSlice({
       state.songs = state.songs.filter((song) => song.id !== action.payload);
     },
     getTotalCountsSuccess: (state, action) => {
+      console.log("getTotalCountsSuccess REDUCER GOT : ", action.payload)
       state.status = action.payload;
     },
     setSongs: (state, action) => {
@@ -46,7 +40,6 @@ const songsSlice = createSlice({
 
 // Redux actions
 export const {
-  addNewSongSuccess,
   getAllSongsSuccess,
   editSongSuccess,
   deleteSongSuccess,
