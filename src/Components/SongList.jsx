@@ -82,8 +82,8 @@ console.log("stats", stats)
                 </div>
                  <div className='border-l'>
                 <h3> {stats.countByAlbum[0].count} Albums by Name {stats.countByAlbum[0]._id}</h3>
-                <h3> {stats.countByArtist[0].count} Albums by Name {stats.countByArtist[0]._id}</h3>
-                <h3> {stats.countByGenre[0].count} Albums by Name {stats.countByGenre[0]._id}</h3>
+                <h3> {stats.countByArtist[0].count} Artist by Name {stats.countByArtist[0]._id}</h3>
+                <h3> {stats.countByGenre[0].count} Genre by Name {stats.countByGenre[0]._id}</h3>
              </div>
              </>
             : ''}
