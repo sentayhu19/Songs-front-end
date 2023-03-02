@@ -57,7 +57,7 @@ const SongList = (bg) => {
 console.log("stats", stats)
   return (
     <div className={'bg-[url(https://cdn.pixabay.com/photo/2016/04/30/14/58/music-1363069_960_720.jpg)]  h-screen bg-no-repeat w-[100%] bg-cover p-20'}>
-         <h2 className='text-2xl'>Statistics</h2>
+         <h2 className=' text-center text-2xl'>Statistics</h2>
         <div className=' flex items-center w-[40%] m-auto bg-green-500 text-white gap-[50%] border'>
            
             {Object.keys(stats).length > 0 ? 
