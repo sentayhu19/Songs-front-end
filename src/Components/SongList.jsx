@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllSongsSuccess } from '../redux/song/songSlice';
 import EditSongForm from './EditSongForm';
@@ -42,6 +42,7 @@ const SongList = (bg) => {
   const dispatch = useDispatch();
   const { songs } = useSelector((state) => state.songs);
     const { status } = useSelector((state) => state.songs);
+    const [searchByGenre, setSearchByGenre] = useState('');
 console.log("stats", status)
   useEffect(() => {
     dispatch({type: "songs/getAllSongs"}); 
