@@ -37,6 +37,7 @@ const ManageSong = () => {
         "bg-[url(https://cdn.pixabay.com/photo/2016/04/30/14/58/music-1363069_960_720.jpg)]  h-screen bg-no-repeat w-[100%] bg-cover p-20"
       }
     >
+        <div className="mt-20">
       <Box>
         <Table>
           <thead>
@@ -61,6 +62,7 @@ const ManageSong = () => {
           </tbody>
         </Table>
       </Box>
+      </div>
     </div>
   );
 };

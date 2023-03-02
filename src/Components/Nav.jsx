@@ -14,7 +14,7 @@ const Nav = () => {
 
       };
   return (
-    <div className='sm'>
+    <nav className='fixed w-full bg-white'>
         <div className='flex sm:flex-col md:flex-row justify-between m-10 items-center'>
               <h1 className='flex items-center justify-center text-3xl rounded-lg  border-2 md:w-[15%]'>
                 <NavLink to="/">
@@ -28,7 +28,7 @@ const Nav = () => {
                <li> <NavLink to="/managesong" className="hover:bg-green-500 hover:text-white hover:border hover:rounded-lg p-2" style={({ isActive }) => isActive ? activeStyle : undefined } >Manage Songs </NavLink></li>
               </ul> 
               </div>
-    </div>
+    </nav>
   )
 }
 

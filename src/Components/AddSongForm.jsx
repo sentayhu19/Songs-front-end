@@ -31,7 +31,7 @@ const AddSongForm = () => {
 
   return (
     <div className={'bg-[url(https://cdn.pixabay.com/photo/2016/04/30/14/58/music-1363069_960_720.jpg)]  h-screen bg-no-repeat w-[100%] bg-cover md:p-20 sm:p-5'}>
-    <div className='flex items-center justify-center md:w-[60%] sm:w-[95%] m-auto border rounded-lg bg-slate-200 h-auto sm:flex-col md:flex-row '>
+    <div className='flex items-center justify-center md:w-[60%] sm:w-[95%] m-auto border rounded-lg bg-slate-200 h-auto sm:flex-col md:flex-row mt-20 '>
         <img src="https://cdn.pixabay.com/photo/2020/04/15/14/45/microphone-5046876_1280.jpg" alt="addis record" className='md:w-[50%] sm:w-full p-5  h-auto'/>
     <form className='flex w-[50%] h-auto p-20 flex-col gap-4' onSubmit={handleSubmit}>
         <div className='flex gap-4 items-center justify-center'>
