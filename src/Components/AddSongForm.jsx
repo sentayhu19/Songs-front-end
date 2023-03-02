@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addNewSong } from '../redux/songsSlice';
+import { addNewSongSuccess } from '../redux/song/songSlice';
 
 const AddSongForm = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const AddSongForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addNewSong(song));
+    dispatch(addNewSongSuccess(song));
   };
 
   return (

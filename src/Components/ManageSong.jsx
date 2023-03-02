@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllSongsSuccess } from '../redux/song/songSlice';
 import EditSongForm from './EditSongForm';
 
 import { ThemeProvider } from '@emotion/react';
@@ -10,9 +9,7 @@ import { Box } from 'rebass/styled-components';
 
 const Table = styled.table`
   border-collapse: collapse;
-  width: 70%;
-  margin: 0 auto;
-  margin-top: 80px;
+  width: 100%;
 `;
 
 const Th = styled.th`
@@ -39,7 +36,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const SongList = () => {
+const ManageSong = () => {
   const dispatch = useDispatch();
   const { songs } = useSelector((state) => state.songs);
 
@@ -55,18 +52,15 @@ const SongList = () => {
       <Table>
         <thead>
           <tr>
-            <Th>Title</Th>
-            <Th>Artist</Th>
-            <Th>Genre</Th>
+            <Th>Actions</Th>
           </tr>
         </thead>
         <tbody>
           {songs.songs ? songs.songs.map((song) => (
-            <tr className='hover:bg-slate-300' key={song.id}>
-              <Td>{song.title}</Td>
-              <Td>{song.artist}</Td>
-              <Td>{song.genre}</Td>
+            <tr key={song.id}>
               <Td>
+                <EditSongForm song={song} />
+                <Button>Delete</Button>
               </Td>
             </tr>
           )): ''}
@@ -76,4 +70,4 @@ const SongList = () => {
   );
 };
 
-export default SongList;
+export default ManageSong;
