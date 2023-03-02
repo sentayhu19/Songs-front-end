@@ -6,7 +6,7 @@ import EditSongForm from './EditSongForm';
 
 const SongList = () => {
     const dispatch = useDispatch();
-    const songs = useSelector((state) => state.songs);
+    const { songs } = useSelector((state) => state.songs);
    useEffect(() => {
     console.log("init useEFFECt getALL Songs")
     dispatch({type: "songs/getAllSongs"}); 
@@ -24,7 +24,7 @@ console.log("SONGS LIST", songs)
           </tr>
         </thead>
         <tbody>
-          {/* {songs.map((song) => (
+          {songs.songs ? songs.songs.map((song) => (
             <tr key={song.id}>
               <td>{song.title}</td>
               <td>{song.artist}</td>
@@ -34,7 +34,7 @@ console.log("SONGS LIST", songs)
                 <button>Delete</button>
               </td>
             </tr>
-          ))} */}
+          )): ''}
         </tbody>
       </table>
     </div>
