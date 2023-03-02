@@ -41,17 +41,38 @@ const Button = styled.button`
 const SongList = (bg) => {
   const dispatch = useDispatch();
   const { songs } = useSelector((state) => state.songs);
-    const { status } = useSelector((state) => state.songs);
-    const [searchByGenre, setSearchByGenre] = useState('');
-console.log("stats", status)
+    const { stats } = useSelector((state) => state.songs);
+
   useEffect(() => {
     dispatch({type: "songs/getAllSongs"}); 
     dispatch({type: "songs/getTotalCounts"});
   }, [dispatch]);
 
-
+//search by genre
+console.log("stats", stats)
   return (
     <div className={'bg-[url(https://cdn.pixabay.com/photo/2016/04/30/14/58/music-1363069_960_720.jpg)]  h-screen bg-no-repeat w-[100%] bg-cover p-20'}>
+         <h2 className='text-2xl'>Statistics</h2>
+        <div className=' flex items-center w-[50%] m-auto  gap-[50%] border'>
+           
+            {Object.keys(stats).length > 0 ? 
+            <>
+                <div>
+                    <h3>{stats.totalCounts[0].totalAlbums} Albums</h3>
+                    <h3>{stats.totalCounts[0].totalGenres} Genres</h3>
+                    <h3>{stats.totalCounts[0].totalSongs} Songs</h3>
+                    <h3>{stats.totalCounts[0].totalArtists} Artists</h3>
+                </div>
+                 <div className='border-l'>
+                <h3> {stats.countByAlbum[0].count} Albums by Name {stats.countByAlbum[0]._id}</h3>
+                <h3> {stats.countByArtist[0].count} Albums by Name {stats.countByArtist[0]._id}</h3>
+                <h3> {stats.countByGenre[0].count} Albums by Name {stats.countByGenre[0]._id}</h3>
+             </div>
+             </>
+            : ''}
+           
+
+        </div>
     <Box>
       <Table>
         <thead>

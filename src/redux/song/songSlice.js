@@ -5,11 +5,10 @@ const songsSlice = createSlice({
   name: 'songs',
   initialState: {
     songs: [],
-    status: [],
+    stats: [],
   },
   reducers: {
     getAllSongsSuccess: (state, action) => {
-      console.log("getAllSongsSuccess: ", action.payload)
       state.songs = action.payload;
     },
     editSongSuccess: (state, action) => {
@@ -23,7 +22,7 @@ const songsSlice = createSlice({
     },
     getTotalCountsSuccess: (state, action) => {
       console.log("getTotalCountsSuccess REDUCER GOT : ", action.payload)
-      state.status = action.payload;
+      state.stats = action.payload;
     },
     setSongs: (state, action) => {
       console.log("setSongs: ", action.payload)
