@@ -1,11 +1,20 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import { setSongs, setStatus, setError, getAllSongsSuccess, getTotalCountsSuccess } from './songSlice';
+import {
+  setStatus,
+  setError,
+  getAllSongsSuccess,
+  getTotalCountsSuccess,
+} from './songSlice';
 
 const url = 'https://songs-api-wheq.onrender.com/v1';
 function* addNewSong(action) {
   try {
-    const { data } = yield call(axios.post, `${url}/addnewsong`, action.payload);
+    const { data } = yield call(
+      axios.post,
+      `${url}/addnewsong`,
+      action.payload,
+    );
     yield put(setStatus(data.message));
   } catch (error) {
     yield put(setError(error.message));
@@ -35,7 +44,6 @@ function* deleteSong(action) {
 function* getAllSongs() {
   try {
     const { data } = yield call(axios.get, `${url}/getsongs`);
-    console.log("This is get all SAGA data: ", data);
     yield put(getAllSongsSuccess(data));
   } catch (error) {
     yield put(setError(error.message));
@@ -45,7 +53,6 @@ function* getAllSongs() {
 function* getTotalCounts() {
   try {
     const { data } = yield call(axios.get, `${url}/gestatus`);
-    console.log("This is get total counts SAGA data: ", data);
     yield put(getTotalCountsSuccess(data));
   } catch (error) {
     yield put(setError(error.message));

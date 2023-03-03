@@ -12,7 +12,9 @@ const songsSlice = createSlice({
       state.songs = action.payload;
     },
     editSongSuccess: (state, action) => {
-      const index = state.songs.findIndex((song) => song.id === action.payload.id);
+      const index = state.songs.findIndex(
+        (song) => song.id === action.payload.id,
+      );
       if (index !== -1) {
         state.songs[index] = action.payload;
       }
@@ -21,11 +23,9 @@ const songsSlice = createSlice({
       state.songs = state.songs.filter((song) => song.id !== action.payload);
     },
     getTotalCountsSuccess: (state, action) => {
-      console.log("getTotalCountsSuccess REDUCER GOT : ", action.payload)
       state.stats = action.payload;
     },
     setSongs: (state, action) => {
-      console.log("setSongs: ", action.payload)
       state.songs = action.payload;
     },
     setStatus: (state, action) => {

@@ -37,31 +37,31 @@ const ManageSong = () => {
         "bg-[url(https://cdn.pixabay.com/photo/2016/04/30/14/58/music-1363069_960_720.jpg)]  h-screen bg-no-repeat w-[100%] bg-cover p-20"
       }
     >
-        <div className="md:mt-20 sm:mt-36">
-      <Box>
-        <Table>
-          <thead>
-            <tr>
-              <Th>Delete Actions</Th>
-              <Th>Title</Th>
-              <Th>Artist</Th>
-              <Th>Genre</Th>
-              <Th>Album</Th>
-              <Th>SAVE</Th>
-            </tr>
-          </thead>
+      <div className="md:mt-20 sm:mt-36">
+        <Box>
+          <Table>
+            <thead>
+              <tr>
+                <Th>Delete Actions</Th>
+                <Th>Title</Th>
+                <Th>Artist</Th>
+                <Th>Genre</Th>
+                <Th>Album</Th>
+                <Th>SAVE</Th>
+              </tr>
+            </thead>
 
-          <tbody>
-            {songs.songs
-              ? songs.songs.map((song) => (
-                  <tr key={song.id}>
+            <tbody>
+              {songs.songs
+                ? songs.songs.map((song) => (
+                    <tr key={song.id}>
                       <EditSongForm song={song} />
-                  </tr>
-                ))
-              : ""}
-          </tbody>
-        </Table>
-      </Box>
+                    </tr>
+                  ))
+                : ""}
+            </tbody>
+          </Table>
+        </Box>
       </div>
     </div>
   );
