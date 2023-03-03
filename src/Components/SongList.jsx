@@ -67,36 +67,36 @@ const SongList = (bg) => {
               <div className="flex flex-col gap-3 p-3">
                 <div className="flex gap-2 items-center">
                   <FontAwesomeIcon icon={faRecordVinyl} size="2x" />
-                  <h3>{stats.totalCounts[0].totalAlbums} Albums</h3>
+                  <h3>{stats.totalCounts[0]?.totalAlbums} Albums</h3>
                 </div>
                 <div className="flex gap-2 items-center">
                   <FontAwesomeIcon icon={faGuitar} size="2x" />
-                  <h3>{stats.totalCounts[0].totalGenres} Genres</h3>
+                  <h3>{stats.totalCounts[0]?.totalGenres} Genres</h3>
                 </div>
                 <div className="flex gap-2 items-center">
                   <FontAwesomeIcon icon={faMusic} size="2x" />
-                  <h3>{stats.totalCounts[0].totalSongs} Songs</h3>
+                  <h3>{stats.totalCounts[0]?.totalSongs} Songs</h3>
                 </div>
                 <div className="flex gap-2 items-center">
                   <FontAwesomeIcon icon={faMicrophoneAlt} size="2x" />
-                  <h3>{stats.totalCounts[0].totalArtists} Artists</h3>
+                  <h3>{stats.totalCounts[0]?.totalArtists} Artists</h3>
                 </div>
               </div>
               <div className="border-l pl-2">
                 <h3 className="w-full">
                   {" "}
-                  {stats.countByAlbum[0].count} Albums by Name{" "}
-                  {stats.countByAlbum[0]._id}
+                  {stats.countByAlbum[0]?.count} Albums by Name{" "}
+                  {stats.countByAlbum[0]?._id}
                 </h3>
                 <h3 className="w-full">
                   {" "}
-                  {stats.countByArtist[0].count} Songs by Artist{" "}
-                  {stats.countByArtist[0]._id}
+                  {stats.countByArtist[0]?.count} Songs by Artist{" "}
+                  {stats.countByArtist[0]?._id}
                 </h3>
                 <h3 className="w-full">
                   {" "}
-                  {stats.countByGenre[0].count} Songs by Genre{" "}
-                  {stats.countByGenre[0]._id}
+                  {stats.countByGenre[0]?.count} Songs by Genre{" "}
+                  {stats.countByGenre[0]?._id}
                 </h3>
               </div>
             </>

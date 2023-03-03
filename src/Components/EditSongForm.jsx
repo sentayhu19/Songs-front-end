@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { editSongSuccess } from "../redux/song/songSlice";
 import styled from "@emotion/styled";
@@ -8,17 +8,15 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 const EditSongForm = ({ song }) => {
   const dispatch = useDispatch();
   const [editedSong, setEditedSong] = useState(song);
-
+  const [message, setMessage] = useState("");
   const handleChange = (event) => {
     setEditedSong({ ...editedSong, [event.target.name]: event.target.value });
   };
-  const Td = styled.td`
-    text-align: left;
-    padding: 8px;
-  `;
+
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch({ type: "songs/editSong", payload: editedSong });
+    setMessage("Saved");
   };
   const handleDelete = (event) => {
     console.log("handleDelete", event.target.id);
@@ -38,7 +36,7 @@ const EditSongForm = ({ song }) => {
   `;
   return (
     <>
-      <Td>
+      <td>
         <Button
           className="rounded-lg"
           title="Delete"
@@ -47,8 +45,8 @@ const EditSongForm = ({ song }) => {
         >
           <FontAwesomeIcon icon={faTrash} />
         </Button>
-      </Td>
-      <Td>
+      </td>
+      <td>
         <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={faEdit} />
           <input
@@ -58,8 +56,8 @@ const EditSongForm = ({ song }) => {
             onChange={handleChange}
           />
         </div>
-      </Td>
-      <Td>
+      </td>
+      <td>
         <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={faEdit} />
           <input
@@ -69,8 +67,8 @@ const EditSongForm = ({ song }) => {
             onChange={handleChange}
           />
         </div>
-      </Td>
-      <Td>
+      </td>
+      <td>
         <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={faEdit} />
           <input
@@ -80,8 +78,8 @@ const EditSongForm = ({ song }) => {
             onChange={handleChange}
           />
         </div>
-      </Td>
-      <Td>
+      </td>
+      <td>
         <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={faEdit} />
           <input
@@ -91,8 +89,8 @@ const EditSongForm = ({ song }) => {
             onChange={handleChange}
           />
         </div>
-      </Td>
-      <Td>
+      </td>
+      <td>
         <button
           onClick={handleSubmit}
           className="bg-green-500 text-white p-2 rounded-lg"
@@ -100,7 +98,8 @@ const EditSongForm = ({ song }) => {
         >
           Save
         </button>
-      </Td>
+        {message && <p>{message}</p>}
+      </td>
     </>
   );
 };
