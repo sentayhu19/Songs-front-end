@@ -2,7 +2,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 import { setSongs, setStatus, setError, getAllSongsSuccess, getTotalCountsSuccess } from './songSlice';
 
-const url = 'http://localhost:3000/v1';
+const url = 'https://songs-api-wheq.onrender.com/v1';
 function* addNewSong(action) {
   try {
     const { data } = yield call(axios.post, `${url}/addnewsong`, action.payload);

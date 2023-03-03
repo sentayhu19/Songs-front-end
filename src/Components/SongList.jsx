@@ -54,12 +54,10 @@ const SongList = (bg) => {
   }, [dispatch]);
 
 //search by genre
-console.log("stats", stats)
   return (
-    <div className={'bg-[url(https://cdn.pixabay.com/photo/2016/04/30/14/58/music-1363069_960_720.jpg)]  h-screen bg-no-repeat w-[100%] bg-cover p-20'}>
-        <div className='mt-20'>
-         <h2 className=' text-center text-2xl'>Statistics</h2>
-        <div className=' flex items-center w-[40%] m-auto bg-green-500 text-white gap-[50%] border'>
+    <div className={'bg-[url(https://cdn.pixabay.com/photo/2016/04/30/14/58/music-1363069_960_720.jpg)]  md:h-screen sm:h-auto bg-no-repeat w-[100%] bg-cover p-20'}>
+        <div className='md:mt-20 sm:mt-36'>
+        <div className=' flex md:flex-row sm:flex-col items-center min-w-[230px] w-[40%] m-auto bg-green-500 text-white gap-[30%] border'>
            
             {Object.keys(stats).length > 0 ? 
             <>
@@ -81,10 +79,10 @@ console.log("stats", stats)
                     <h3>{stats.totalCounts[0].totalArtists} Artists</h3>
                     </div>
                 </div>
-                 <div className='border-l'>
-                <h3> {stats.countByAlbum[0].count} Albums by Name {stats.countByAlbum[0]._id}</h3>
-                <h3> {stats.countByArtist[0].count} Artist by Name {stats.countByArtist[0]._id}</h3>
-                <h3> {stats.countByGenre[0].count} Genre by Name {stats.countByGenre[0]._id}</h3>
+                 <div className='border-l pl-2'>
+                <h3 className='w-full'> {stats.countByAlbum[0].count} Albums by Name {stats.countByAlbum[0]._id}</h3>
+                <h3 className='w-full'> {stats.countByArtist[0].count} Songs by Artist {stats.countByArtist[0]._id}</h3>
+                <h3 className='w-full'> {stats.countByGenre[0].count} Songs by Genre {stats.countByGenre[0]._id}</h3>
              </div>
              </>
             : ''}
