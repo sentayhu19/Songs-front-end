@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { addNewSongSuccess } from "../redux/song/songSlice";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { MoonLoader} from "react-spinners";
 const AddSongForm = () => {
   const dispatch = useDispatch();
   const [song, setSong] = useState({

@@ -45,10 +45,8 @@ const Button = styled.button`
 
 const SongList = (bg) => {
   const dispatch = useDispatch();
-  // const { songs } = useSelector((state) => state.songs);
-  // const { stats } = useSelector((state) => state.songs);
-  const songs = [];
-  const stats = [];
+  const { songs } = useSelector((state) => state.songs);
+  const { stats } = useSelector((state) => state.songs);
 
   useEffect(() => {
     dispatch({ type: "songs/getAllSongs" });
