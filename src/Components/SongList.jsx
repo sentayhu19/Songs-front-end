@@ -10,6 +10,7 @@ import { faRecordVinyl } from "@fortawesome/free-solid-svg-icons";
 import { faGuitar } from "@fortawesome/free-solid-svg-icons";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import { faMicrophoneAlt } from "@fortawesome/free-solid-svg-icons";
+import { MoonLoader} from "react-spinners";
 
 const Table = styled.table`
   border-collapse: collapse;
@@ -44,8 +45,10 @@ const Button = styled.button`
 
 const SongList = (bg) => {
   const dispatch = useDispatch();
-  const { songs } = useSelector((state) => state.songs);
-  const { stats } = useSelector((state) => state.songs);
+  // const { songs } = useSelector((state) => state.songs);
+  // const { stats } = useSelector((state) => state.songs);
+  const songs = [];
+  const stats = [];
 
   useEffect(() => {
     dispatch({ type: "songs/getAllSongs" });
@@ -100,7 +103,7 @@ const SongList = (bg) => {
               </div>
             </>
           ) : (
-            ""
+            <MoonLoader title="Loadig stats..." className="m-auto" color="#fff" />
           )}
         </div>
         <Box>
@@ -126,9 +129,11 @@ const SongList = (bg) => {
                       <Td>{song.genre}</Td>
                     </tr>
                   ))
-                : ""}
+                : ""
+                }
             </tbody>
           </Table>
+          { songs.songs ? '':<MoonLoader title="Loading songs..." className="w-full m-auto" color="#36d7b7" />}
         </Box>
       </div>
     </div>
