@@ -4,7 +4,8 @@ import styled from "@emotion/styled";
 import { addNewSongSuccess } from "../redux/song/songSlice";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { MoonLoader} from "react-spinners";
+import { MoonLoader } from "react-spinners";
+
 const AddSongForm = () => {
   const dispatch = useDispatch();
   const [song, setSong] = useState({
@@ -13,6 +14,9 @@ const AddSongForm = () => {
     genre: "",
     album: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const Button = styled.button`
     background-color: #4caf50;
     color: white;
@@ -26,7 +30,16 @@ const AddSongForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsLoading(true);
     dispatch({ type: "songs/addNewSong", payload: song });
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsSubmitted(true);
+      setSong({ title: "", artist: "", genre: "", album: "" });
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    }, 3000);
   };
 
   return (
@@ -88,12 +101,21 @@ const AddSongForm = () => {
               onChange={handleChange}
             />
           </div>
-          <button
-            className="border bg-white hover:bg-green-500 hover:text-white  p-2 rounded-lg"
-            type="submit"
-          >
-            Add New Song
-          </button>
+          {isLoading ? (
+            <div className="flex justify-center">
+              <MoonLoader color="#36d7b7" />
+            </div>
+          ) : (
+            <button
+              className="border bg-white hover:bg-green-500 hover:text-white  p-2 rounded-lg"
+              type="submit"
+            >
+              Add New Song
+            </button>
+          )}
+          {showSuccessMessage && (
+            <p className="text-green-500">Song added successfully!</p>
+          )}
         </form>
       </div>
     </div>
